@@ -71,7 +71,17 @@
     <!-- jTinder status text  -->
     <div id="status"></div>
 
+    <!-- jQuery lib -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- transform2d lib -->
+    <script type="text/javascript" src="js/jquery.transform2d.js"></script>
+    <!-- jTinder lib -->
+    <script type="text/javascript" src="js/jquery.jTinder.js"></script>
+    <!-- jTinder initialization script -->
+    <script type="text/javascript" src="js/main.js"></script>
     <script>
+
+        $(document).ready(function () {
     (async function() {
         const text = await (await fetch(`https://serverless-function-airport.azurewebsites.net/api/HttpTrigger1`)).json();
         //const text = await (await fetch(`http://192.168.1.2:7071/api/HttpTrigger1?name=xyz`)).json();
@@ -97,9 +107,10 @@
                             'Domestic' : 'pane8',
                             'International' : 'pane8',
                             'The Quad by BLR' : 'pane7',
-                            'FSTR' : 'pane',
+                            'FSTR' : 'pane17',
                             'Lounges' : 'pane6',
                             'Taj Bangalore' : 'pane11',
+                            'Season of Smiles': 'pane18'
                         };
 
         for (var cat in text) {
@@ -147,15 +158,8 @@
         */
         $("#tinderslide").jTinder();
     }())
+                    });
     </script>
 
-    <!-- jQuery lib -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <!-- transform2d lib -->
-    <script type="text/javascript" src="js/jquery.transform2d.js"></script>
-    <!-- jTinder lib -->
-    <script type="text/javascript" src="js/jquery.jTinder.js"></script>
-    <!-- jTinder initialization script -->
-    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@ body {
     top: 0;
     z-index: 2;
     left: 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, .2); */
     overflow: hidden;
     text-align: center;
     padding: 10px 10px 10px 10px;
@@ -90,7 +90,7 @@ body {
 #tinderslide .like,
 #tinderslide .dislike {
     background: url("../img/liked.png") no-repeat scroll 0 0;
-    opacity: 0;
+    opacity: 1;
     height: 80px;
     /*position: absolute;*/
     width: 170px;
@@ -187,6 +187,14 @@ body {
 }
 
 /* jTinder images */
+#tinderslide .pane18 .img {
+    background: url("../img/pane/Season-of-Smiles.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane17 .img {
+    background: url("../img/pane/FSTR-350-X-310.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
 #tinderslide .pane16 .img {
     background: url("../img/pane/Tali.jpg") no-repeat scroll center center;
     background-size: cover;
