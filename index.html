@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to BLR</title>
     <link rel="stylesheet" type="text/css" href="css/jTinder.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- start padding container -->
@@ -83,8 +86,10 @@
 
         $(document).ready(function () {
     (async function() {
-        const text = await (await fetch(`https://serverless-function-airport.azurewebsites.net/api/HttpTrigger1`)).json();
-        //const text = await (await fetch(`http://192.168.1.2:7071/api/HttpTrigger1?name=xyz`)).json();
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('name');
+        //const text = await (await fetch(`https://serverless-function-airport.azurewebsites.net/api/HttpTrigger1`)).json();
+        const text = await (await fetch(`http://192.168.1.2:7071/api/HttpTrigger1?name=`+myParam)).json();
         
         //document.querySelector('#name').textContent = text["cities"];
         var wrap = document.getElementsByClassName('wrap')[0];
@@ -98,11 +103,8 @@
         //var slide = document.getElementById('tinderslide');
         //var ul = slide.getElementsByTagName('ul')[0];
                 var catToPane = {
-                            'pre-security' : 'pane13',
-                            'post-security' : 'pane13',
-                            'Breakfast Thali & Mysore Masala Dosa (Tiffin Centre): BLR Recommends' : 'pane16',
-                            'Podi Idli (Tiffin Express): BLR Recommends': 'pane15',
-                            'Filter Kaapi (Hatti Kaapi): BLR Recommends': 'pane14',
+                            'Culinary (pre-security)' : 'pane13',
+                            'Culinary (post-security)' : 'pane13',
                             'Duty Free' : 'pane3',
                             'Domestic' : 'pane8',
                             'International' : 'pane8',
@@ -110,26 +112,53 @@
                             'FSTR' : 'pane17',
                             'Lounges' : 'pane6',
                             'Taj Bangalore' : 'pane11',
-                            'Season of Smiles': 'pane18'
+                            'Season of Smiles': 'pane18',
+                            'Ad': 'pane19',
+                            'Offers': 'pane20',
                         };
 
         for (var cat in text) {
             let labels = text[cat];
-            for (let i = labels.length -1; i >=0 ; i-=3) {
+            let step = 1;
+            if (labels.length > 4) step = 3;
+            for (let i = labels.length -1; i >=0 ; i-=step) {
                 var li = document.createElement("li");
-                li.setAttribute("class", catToPane[cat]);
+                if (cat === "BLR Recommends") {
+                    if (labels[i] === "Breakfast Thali & Mysore Masala Dosa (Tiffin Centre)")
+                        li.setAttribute("class", 'pane16');
+                    if (labels[i] === "Podi Idli (Tiffin Express)")
+                        li.setAttribute("class", 'pane15');
+                    if (labels[i] === "Filter Kaapi (Hatti Kaapi)")
+                        li.setAttribute("class", 'pane14');
+                } else {
+                    li.setAttribute("class", catToPane[cat]);
+                }
 
                 var div = document.createElement("div");
                 div.setAttribute("class", "img");
                 li.appendChild(div);
 
-                div = document.createElement("div");
+                span = document.createElement("span");
                 if (labels[i] === "") {
-                    div.innerHTML = cat;
+                    span.innerHTML = cat;
                 } else {
-                    div.innerHTML += labels[i] + " (" + cat + ")";
+                    span.innerHTML += labels[i];
                 }
-                li.appendChild(div);
+                        /*
+                span.style.fontFamily = "Roboto,sans-serif";
+                span.style.fontSize = "30px";
+                //span.style.backgroundColor = "#aaaaaa";
+                //span.style.color = "#aaaaaa";
+                span.style.display = "inline-block";
+                span.style.verticalAlign = "middle";
+                span.style.textShadow = "-1px -1px 0 #ffffff,  1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff";
+       */
+                span.style.top = "30px";
+                div.appendChild(span);
+
+                categoryText = document.createElement("div");
+                categoryText.innerHTML = cat;
+                li.appendChild(categoryText);
 
                 div = document.createElement("div");
                 div.setAttribute("class", "like");
@@ -156,9 +185,15 @@
             div.appendChild(anchor);
         }
         */
-        $("#tinderslide").jTinder();
+                $("#tinderslide").jTinder({
+                    onDislike: function (item) {
+                    },
+                    onLike: function (item) {
+                        window.location.href="https://www.bengaluruairport.com/travellers/at-the-airport/experience.html";
+                    },
+                });
     }())
-                    });
+    });
     </script>
 
 </body>

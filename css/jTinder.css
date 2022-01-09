@@ -30,7 +30,7 @@ body {
 }
 
 #tinderslide li {
-    display: block;
+    display: inline-block;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -41,6 +41,7 @@ body {
     /* box-shadow: 0 0 20px rgba(0, 0, 0, .2); */
     overflow: hidden;
     text-align: center;
+    vertical-align: middle;
     padding: 10px 10px 10px 10px;
     background: #eee;
     font-size: 24px;
@@ -90,12 +91,12 @@ body {
 #tinderslide .like,
 #tinderslide .dislike {
     background: url("../img/liked.png") no-repeat scroll 0 0;
-    opacity: 1;
+    opacity: 0;
     height: 80px;
-    /*position: absolute;*/
+    position: absolute;
     width: 170px;
     left: 45px;
-    /*top:40px;
+    top:80px;
     z-index: 1;
     overflow: hidden; 
     -webkit-transform: translate3d(0%,0,0) scale3d(1,1,1);
@@ -104,7 +105,7 @@ body {
     -o-transform: translate3d(0%,0,0) scale3d(1,1,1);
     transform: translate3d(0%,0,0) scale3d(1,1,1);
     -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; */
+    backface-visibility: hidden;
 }
 
 #tinderslide .dislike {
@@ -117,6 +118,13 @@ body {
 #tinderslide .img {
     height: 90%;
     width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    text-shadow:
+    -1px -1px 0 #ffffff,  
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;    
     margin-bottom: 5px;
     position: relative;
     -webkit-transform: translate3d(0%,0,0) scale3d(1,1,1);
@@ -131,12 +139,20 @@ body {
     -webkit-transform-style: preserve-3d;
 }
 
+#tinderslide .img .span {
+    top: 30px;
+    display : inline-block;
+    vertical-align: middle;
+}
+
 /* Action - buttons */
 .actions {
     text-align: center;
     width: 304px;
     margin: 0 auto;
     overflow: hidden;
+    position: inherit;
+    top: 120px;
 }
 
 .actions div {
@@ -187,6 +203,14 @@ body {
 }
 
 /* jTinder images */
+#tinderslide .pane20 .img {
+    background: url("../img/pane/offers.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane19 .img {
+    background: url("../img/pane/ad.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
 #tinderslide .pane18 .img {
     background: url("../img/pane/Season-of-Smiles.jpg") no-repeat scroll center center;
     background-size: cover;
