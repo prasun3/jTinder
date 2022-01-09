@@ -88,8 +88,8 @@
     (async function() {
         const urlParams = new URLSearchParams(window.location.search);
         const myParam = urlParams.get('name');
-        //const text = await (await fetch(`https://serverless-function-airport.azurewebsites.net/api/HttpTrigger1`)).json();
-        const text = await (await fetch(`http://192.168.1.2:7071/api/HttpTrigger1?name=`+myParam)).json();
+        const text = await (await fetch(`https://serverless-function-airport.azurewebsites.net/api/HttpTrigger1`)).json();
+        //const text = await (await fetch(`http://192.168.1.2:7071/api/HttpTrigger1?name=`+myParam)).json();
         
         //document.querySelector('#name').textContent = text["cities"];
         var wrap = document.getElementsByClassName('wrap')[0];
