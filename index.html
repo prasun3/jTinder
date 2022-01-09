@@ -73,7 +73,7 @@
 
     <script>
     (async function() {
-        const text = await (await fetch(`http://serverless-function-airport.azurewebsites.net/api/HttpTrigger1`)).json();
+        const text = await (await fetch(`https://serverless-function-airport.azurewebsites.net/api/HttpTrigger1`)).json();
         //const text = await (await fetch(`http://192.168.1.2:7071/api/HttpTrigger1?name=xyz`)).json();
         
         //document.querySelector('#name').textContent = text["cities"];
