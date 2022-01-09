@@ -92,19 +92,19 @@ body {
     background: url("../img/liked.png") no-repeat scroll 0 0;
     opacity: 0;
     height: 80px;
-    position: absolute;
+    /*position: absolute;*/
     width: 170px;
     left: 45px;
-    top:40px;
+    /*top:40px;
     z-index: 1;
-    overflow: hidden;
+    overflow: hidden; 
     -webkit-transform: translate3d(0%,0,0) scale3d(1,1,1);
     -moz-transform: translate3d(0%,0,0) scale3d(1,1,1);
     -ms-transform: translate3d(0%,0,0) scale3d(1,1,1);
     -o-transform: translate3d(0%,0,0) scale3d(1,1,1);
     transform: translate3d(0%,0,0) scale3d(1,1,1);
     -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    backface-visibility: hidden; */
 }
 
 #tinderslide .dislike {
@@ -187,24 +187,68 @@ body {
 }
 
 /* jTinder images */
+#tinderslide .pane16 .img {
+    background: url("../img/pane/Tali.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane15 .img {
+    background: url("../img/pane/Podi-Idly.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane14 .img {
+    background: url("../img/pane/FIlter-Kaapi.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane13 .img {
+    background: url("../img/pane/FB-1440-X-500.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane12 .img {
+    background: url("../img/pane/Transportation-Page-Banner-new.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane11 .img {
+    background: url("../img/pane/Taj-1440-X-500.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane10 .img {
+    background: url("../img/pane/Security-1440-X-500.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane9 .img {
+    background: url("../img/pane/Season-of-Smiles.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane8 .img {
+    background: url("../img/pane/Retail-1440-X-500.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane7 .img {
+    background: url("../img/pane/Quad.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
+#tinderslide .pane6 .img {
+    background: url("../img/pane/LOunge-1440-X-500.jpg") no-repeat scroll center center;
+    background-size: cover;
+}
 #tinderslide .pane5 .img {
-    background: url("../img/pane/pane5.jpg") no-repeat scroll center center;
+    background: url("../img/pane/FLights-1440-X-500.jpg") no-repeat scroll center center;
     background-size: cover;
 }
 #tinderslide .pane4 .img {
-    background: url("../img/pane/pane4.jpg") no-repeat scroll center center;
+    background: url("../img/pane/Experience-1440-X-500.jpg") no-repeat scroll center center;
     background-size: cover;
 }
 #tinderslide .pane3 .img {
-    background: url("../img/pane/pane3.jpg") no-repeat scroll center center;
+    background: url("../img/pane/Dutyfree-1440-X-500.jpg") no-repeat scroll center center;
     background-size: cover;
 }
 #tinderslide .pane2 .img {
-    background: url("../img/pane/pane2.jpg") no-repeat scroll center center;
+    background: url("../img/pane/Baggage-1440-X-500.jpg") no-repeat scroll center center;
     background-size: cover;
 }
 #tinderslide .pane1 .img {
-    background: url("../img/pane/pane1.jpg") no-repeat scroll center center;
+    background: url("../img/pane/Airline-Info-1440-X-500.jpg") no-repeat scroll center center;
     background-size: cover;
 }
 

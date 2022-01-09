@@ -4,13 +4,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jTinder Touch Slider</title>
+    <title>Welcome to BLR</title>
     <link rel="stylesheet" type="text/css" href="css/jTinder.css">
 </head>
 <body>
     <!-- start padding container -->
     <div class="wrap">
+        <!-- <p>Loading content from the API: <b id="name">...</b></p> -->
+        <p align="center">
+        EXPLORE.  ENGAGE.  EXPERIENCE. <br/>
+        
+        <a href="https://www.bengaluruairport.com/travellers/flights/flight-information.html#departure">Departures</a>
+        <a href="https://www.bengaluruairport.com/travellers/flights/flight-information.html#arrival">Arrivals</a>
+        <a href="https://www.bengaluruairport.com/travellers/before-you-fly/security.html">Security</a>
+        <a href="https://www.bengaluruairport.com/travellers/transport-parking.html">Transport</a>
+        <a href="https://www.bengaluruairport.com/travellers/before-you-fly/digi-yatra/self-bag-drop.html">Baggage</a>
+        <!-- <a href="https://www.bengaluruairport.com/travellers/before-you-fly/e-tourist-visas.html">Visa</a></p> -->
+
         <!-- start jtinder container -->
+                <!--
         <div id="tinderslide">
             <ul>
                 <li class="pane1">
@@ -45,18 +57,96 @@
                 </li>
             </ul>
         </div>
+                -->
         <!-- end jtinder container -->
     </div>
-    <!-- end padding container -->
 
     <!-- jTinder trigger by buttons  -->
-    <div class="actions">
+        <div class="actions">
         <a href="#" class="dislike"><i></i></a>
         <a href="#" class="like"><i></i></a>
-    </div>
+        </div>
+    <!-- end padding container -->
 
     <!-- jTinder status text  -->
     <div id="status"></div>
+
+    <script>
+    (async function() {
+        const text = await (await fetch(`http://192.168.1.2:7071/api/HttpTrigger1?name=xyz`)).json();
+        
+        //document.querySelector('#name').textContent = text["cities"];
+        var wrap = document.getElementsByClassName('wrap')[0];
+
+        var tinderSlide = document.createElement("div");
+        tinderSlide.setAttribute("id", "tinderslide");
+        wrap.appendChild (tinderSlide);
+
+        var ul = document.createElement("ul");
+        tinderSlide.appendChild(ul);
+        //var slide = document.getElementById('tinderslide');
+        //var ul = slide.getElementsByTagName('ul')[0];
+                var catToPane = {
+                            'pre-security' : 'pane13',
+                            'post-security' : 'pane13',
+                            'Breakfast Thali & Mysore Masala Dosa (Tiffin Centre): BLR Recommends' : 'pane16',
+                            'Podi Idli (Tiffin Express): BLR Recommends': 'pane15',
+                            'Filter Kaapi (Hatti Kaapi): BLR Recommends': 'pane14',
+                            'Duty Free' : 'pane3',
+                            'Domestic' : 'pane8',
+                            'International' : 'pane8',
+                            'The Quad by BLR' : 'pane7',
+                            'FSTR' : 'pane',
+                            'Lounges' : 'pane6',
+                            'Taj Bangalore' : 'pane11',
+                        };
+
+        for (var cat in text) {
+            let labels = text[cat];
+            for (let i = labels.length -1; i >=0 ; i-=3) {
+                var li = document.createElement("li");
+                li.setAttribute("class", catToPane[cat]);
+
+                var div = document.createElement("div");
+                div.setAttribute("class", "img");
+                li.appendChild(div);
+
+                div = document.createElement("div");
+                if (labels[i] === "") {
+                    div.innerHTML = cat;
+                } else {
+                    div.innerHTML += labels[i] + " (" + cat + ")";
+                }
+                li.appendChild(div);
+
+                div = document.createElement("div");
+                div.setAttribute("class", "like");
+                li.appendChild(div);
+                div = document.createElement("div");
+                div.setAttribute("class", "dislike");
+                li.appendChild(div);
+
+                li.hidden = true;
+                ul.appendChild(li);
+            }
+        }
+
+        /*
+        div = document.createElement("div");
+        div.setAttribute("class", "actions");
+        wrap.appendChild(div);
+
+        for (const action of ["like", "dislike"]) {
+            var anchor = document.createElement("a");
+            anchor.setAttribute("class", action);
+            anchor.href = "#";
+            anchor.appendChild(document.createElement("i"));
+            div.appendChild(anchor);
+        }
+        */
+        $("#tinderslide").jTinder();
+    }())
+    </script>
 
     <!-- jQuery lib -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
